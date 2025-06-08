@@ -37,9 +37,9 @@ class UserModel extends Model
 }
 ```
 
-3. Membuat Controller Pengguna
+##### 3. Membuat Controller Pengguna
 Buat pengontrol User.phpdengan metode index()dan login()untuk mengelola pengguna dan login:
-
+```php
 <?php
 
 namespace App\Controllers;
@@ -96,9 +96,10 @@ class User extends BaseController
         }
     }
 }
-4. Membuat Tampilan Login
+```
+##### 4. Membuat Tampilan Login
 Buat tampilan login.phpuntuk form login:
-
+```php 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -141,12 +142,15 @@ Buat tampilan login.phpuntuk form login:
 		</div>
 	</body>
 </html>
-5. Membuat Seeder Database
+```
+
+#### 5. Membuat Seeder Database
 Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul login, kita perlu memasukkan data user dan password kedaalam database. Untuk itu membuat database seeder untuk tabel user. Buka CLI, kemudian tulis perintah berikut:
 
-php spark make:seeder UserSeeder
-Selanjutnya, buka file UserSeeder.php yang berada di lokasi direktori/app/Database/Seeds/UserSeeder.php kemudian isi dengan kode berikut:
+```php spark make:seeder UserSeeder```
 
+Selanjutnya, buka file UserSeeder.php yang berada di lokasi direktori/app/Database/Seeds/UserSeeder.php kemudian isi dengan kode berikut:
+```php
 <?php
 
 namespace App\Database\Seeds;
@@ -165,15 +169,17 @@ class UserSeeder extends Seeder
         ]);
     }
 }
+```
 Selanjutnya buka kembali CLI dan ketik perintah berikut:
 
-php spark db:seed UserSeeder
-Uji Coba Login
-teks alternatif
+```php spark db:seed UserSeeder```
+##### Uji Coba Login
 
-6. Membuat Filter Auth
-Buat filter Auth.phpuntuk membatasi akses ke halaman admin:
+![image](https://github.com/user-attachments/assets/ab17f5be-6c09-4b2e-9947-e1757c753395)
 
+##### 6. Membuat Filter Auth
+Buat filter ```Auth.php```untuk membatasi akses ke halaman admin:
+```php
 <?php namespace App\Filters;
 
 use CodeIgniter\HTTP\RequestInterface;
@@ -195,26 +201,32 @@ class Auth implements FilterInterface
         // Do something here
     }
 }
+```
 Selanjutnya buka file app/Config/Filters.php tambahkan kode berikut:
 
-'auth' => App\Filters\Auth::class
-teks alternatif Selanjutnya buka file app/Config/Routes.php dan sesuaikan kodenya. teks alternatif
+```'auth' => App\Filters\Auth::class```
+![image](https://github.com/user-attachments/assets/8d3ae9ff-5600-4e84-8312-6ee24bc1c536)
 
-7. Coba Akses Menu Admin
-Buka url dengan alamat http://localhost:8080/admin/artikel ketika alamat tersebut diakses maka, akan muncul halaman login. teks alternatif
+Selanjutnya buka file app/Config/Routes.php dan sesuaikan kodenya. 
+![image](https://github.com/user-attachments/assets/120a845d-f5b6-4e65-8b98-5c9f87c7bf6f)
 
-8. Fungsi Logout
+##### 7. Coba Akses Menu Admin
+Buka url dengan alamat http://localhost:8080/admin/artikel ketika alamat tersebut diakses maka, akan muncul halaman login. 
+![image](https://github.com/user-attachments/assets/18574452-4cfd-40ff-ae60-ec0ba63c51d4)
+
+##### 8. Fungsi Logout
 Tambahkan metode logout pada Controller User seperti berikut:
-
+```php
 public function logout()
     {
         session()->destroy();
         return redirect()->to('/user/login');
     }
-Praktikum 5: Paginasi dan Pencarian
-1. Membuat Pagination
+```
+## Praktikum 5: Paginasi dan Pencarian
+##### 1. Membuat Pagination
 Modifikasi artikel pengontrol untuk menambahkan pagination:
-
+``php
 public function admin_index()
 {
     $title = 'Daftar Artikel';
@@ -226,14 +238,18 @@ public function admin_index()
     ];
     return view('artikel/admin_index', $data);
 }
+```
 Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
 
-<?= $pager->links(); ?>
-Selanjutnya buka kembali menu daftar artikel, tambahkan data lagi untuk melihat hasilnya. teks alternatif
+```<?= $pager->links(); ?>```
 
-2. Membuat Pencarian
+Selanjutnya buka kembali menu daftar artikel, tambahkan data lagi untuk melihat hasilnya.
+
+![image](https://github.com/user-attachments/assets/5b75b24a-9cc9-4746-bf85-b0d94e4d9512)
+
+##### 2. Membuat Pencarian
 Modifikasi pengontrol untuk menambahkan data pencarian:
-
+```php
 public function admin_index()
     {
         $title = 'Daftar Artikel';
@@ -247,6 +263,7 @@ public function admin_index()
         ];
         return view('artikel/admin_index', $data);
     }
+```
 Kemudian buka kembali file views/artikel/admin_index.php dan tambahkan form pencarian sebelum deklarasi tabel seperti berikut:
 
 <form method="get" class="form-search">
