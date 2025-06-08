@@ -329,8 +329,7 @@ Dan sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
 ![image](https://github.com/user-attachments/assets/5fc235f8-a3ba-40ec-a5a8-694a04ae0b2e)
 
 ### Laporan Praktikum
-```
 * Pastikan untuk screenshot setiap perubahan yang dilakukan pada setiap langkah praktikum.
 * Update file README.mddan tuliskan penjelasan serta screenshot dari setiap langkah praktikum.
 * Komit hasilnya pada repositori dan kirimkan URL repositori ke e-learning.
-```
+
