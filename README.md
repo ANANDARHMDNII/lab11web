@@ -229,7 +229,7 @@ public function logout()
 
 Modifikasi artikel pengontrol untuk menambahkan pagination:
 
-``php
+```php
 
 public function admin_index()
 {
@@ -237,12 +237,11 @@ public function admin_index()
     $model = new ArtikelModel();
     $data = [
         'title' => $title,
-        'artikel' => $model->paginate(10), 
+        'artikel' => $model->paginate(10), #data dibatasi 10 record per halaman
         'pager' => $model->pager,
     ];
     return view('artikel/admin_index', $data);
 }
-
 ```
 
 Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
@@ -253,7 +252,7 @@ Selanjutnya buka kembali menu daftar artikel, tambahkan data lagi untuk melihat 
 
 ![image](https://github.com/user-attachments/assets/5b75b24a-9cc9-4746-bf85-b0d94e4d9512)
 
-2. Membuat Pencarian
+##### 2. Membuat Pencarian
 
 Modifikasi pengontrol untuk menambahkan data pencarian:
 ```php
@@ -272,21 +271,25 @@ public function admin_index()
     }
 ```
 Kemudian buka kembali file views/artikel/admin_index.php dan tambahkan form pencarian sebelum deklarasi tabel seperti berikut:
-
+```php
 <form method="get" class="form-search">
     <input type="text" name="q" value="<?= $q; ?>" placeholder="Cari data">
     <input type="submit" value="Cari" class="btn btn-primary">
 </form>
+```
 Dan pada link pager ubah seperti berikut.
 
-<?= $pager->only(['q'])->links(); ?>
-3. Uji Coba Pagination dan Pencarian
-Selanjutnya ujicoba dengan membuka kembali halaman admin artikel, masukkan kata kunci tertentu pada form pencarian. teks alternatif
+```<?= $pager->only(['q'])->links(); ?>```
 
-Praktikum 6: Upload File Gambar
-1. Artikel Modifikasi Kontroler
+##### 3. Uji Coba Pagination dan Pencarian
+Selanjutnya ujicoba dengan membuka kembali halaman admin artikel, masukkan kata kunci tertentu pada form pencarian. 
+![image](https://github.com/user-attachments/assets/206c6524-8c89-47ce-9e9e-748417429161)
+
+## Praktikum 6: Upload File Gambar
+
+##### 1. Artikel Modifikasi Kontroler
 Buka Kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method add seperti berikut:
-
+```php
 public function add()
     {
         // validasi data.
@@ -308,18 +311,26 @@ public function add()
         $title = "Tambah Artikel";
         return view('artikel/form_add', compact('title'));
     }
-2. Modifikasi Lihat Artikel
-Tambahkan field input file pada form artikel:
+```
 
+##### 2. Modifikasi Lihat Artikel
+Tambahkan field input file pada form artikel:
+```php
 <p>
     <input type="file" name="gambar">
 </p>
+```
 Dan sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
 
-<form action="" method="post" enctype="multipart/form-data">
-3. Uji Coba Upload Gambar
-Akses menu tambah artikel dan uji coba upload gambar. teks alternatif
-Laporan Praktikum
+```<form action="" method="post" enctype="multipart/form-data">```
+
+##### 3. Uji Coba Upload Gambar
+## Akses menu tambah artikel dan uji coba upload gambar. 
+![image](https://github.com/user-attachments/assets/5fc235f8-a3ba-40ec-a5a8-694a04ae0b2e)
+
+### Laporan Praktikum
+```
 Pastikan untuk screenshot setiap perubahan yang dilakukan pada setiap langkah praktikum.
 Update file README.mddan tuliskan penjelasan serta screenshot dari setiap langkah praktikum.
 Komit hasilnya pada repositori dan kirimkan URL repositori ke e-learning.
+```
