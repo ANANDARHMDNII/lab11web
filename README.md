@@ -9,7 +9,7 @@
 ## Praktikum 4 : Membuat Sistem Login 
 
 ##### 1. Basis Data Persiapkan
-Buat tabel userpada database dengan SQL berikut:
+Buatlah tabel userpada database dengan SQL berikut:
 ```php
 CREATE TABLE user (
   id INT(11) auto_increment,
@@ -38,7 +38,7 @@ class UserModel extends Model
 ```
 
 ##### 3. Membuat Controller Pengguna
-Buat pengontrol User.phpdengan metode index()dan login()untuk mengelola pengguna dan login:
+Buatlah pengontrol User.phpdengan metode index()dan login()untuk mengelola pengguna dan login:
 ```php
 <?php
 
@@ -98,7 +98,7 @@ class User extends BaseController
 }
 ```
 ##### 4. Membuat Tampilan Login
-Buat tampilan login.phpuntuk form login:
+Buatlah tampilan login.phpuntuk form login:
 ```php 
 <!DOCTYPE html>
 <html lang="en">
@@ -145,7 +145,7 @@ Buat tampilan login.phpuntuk form login:
 ```
 
 #### 5. Membuat Seeder Database
-Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul login, kita perlu memasukkan data user dan password kedaalam database. Untuk itu membuat database seeder untuk tabel user. Buka CLI, kemudian tulis perintah berikut:
+Database seeder berguna untuk mengisi tabel dengan data awal atau data contoh (dummy) secara otomatis. Dalam pengujian fitur login, kita membutuhkan setidaknya satu akun pengguna yang valid agar proses login bisa diuji dengan benar. Oleh karena itu, kita perlu membuat seeder untuk menambahkan data user beserta password-nya ke dalam database. Langkah pertama, buka Command Line Interface (CLI) dan jalankan perintah berikut:
 
 ```php spark make:seeder UserSeeder```
 
@@ -178,7 +178,7 @@ Selanjutnya buka kembali CLI dan ketik perintah berikut:
 ![image](https://github.com/user-attachments/assets/ab17f5be-6c09-4b2e-9947-e1757c753395)
 
 ##### 6. Membuat Filter Auth
-Buat filter ```Auth.php```untuk membatasi akses ke halaman admin:
+Buatlah filter ```Auth.php```untuk membatasi akses ke halaman admin:
 ```php
 <?php namespace App\Filters;
 
@@ -205,10 +205,10 @@ class Auth implements FilterInterface
 Selanjutnya buka file app/Config/Filters.php tambahkan kode berikut:
 
 ```'auth' => App\Filters\Auth::class```
-![image](https://github.com/user-attachments/assets/8d3ae9ff-5600-4e84-8312-6ee24bc1c536)
+![image](https://github.com/user-attachments/assets/d0ba7b55-12f1-4d39-82d9-b023fda77346)
 
 Selanjutnya buka file app/Config/Routes.php dan sesuaikan kodenya. 
-![image](https://github.com/user-attachments/assets/120a845d-f5b6-4e65-8b98-5c9f87c7bf6f)
+![image](https://github.com/user-attachments/assets/62c597bd-2c2a-47a9-82d8-8ebf8e582718)
 
 ##### 7. Coba Akses Menu Admin
 Buka url dengan alamat http://localhost:8080/admin/artikel ketika alamat tersebut diakses maka, akan muncul halaman login. 
@@ -244,7 +244,7 @@ public function admin_index()
 }
 ```
 
-Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
+Setelah itu buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
 
 ```<?= $pager->links(); ?>```
 
