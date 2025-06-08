@@ -239,6 +239,7 @@ public function admin_index()
     return view('artikel/admin_index', $data);
 }
 ```
+
 Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
 
 ```<?= $pager->links(); ?>```
@@ -247,7 +248,8 @@ Selanjutnya buka kembali menu daftar artikel, tambahkan data lagi untuk melihat 
 
 ![image](https://github.com/user-attachments/assets/5b75b24a-9cc9-4746-bf85-b0d94e4d9512)
 
-##### 2. Membuat Pencarian
+2. Membuat Pencarian
+
 Modifikasi pengontrol untuk menambahkan data pencarian:
 ```php
 public function admin_index()
