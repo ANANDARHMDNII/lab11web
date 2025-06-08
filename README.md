@@ -1,11 +1,16 @@
-Nama	Muhammad Nurul Firdaus
-Kelas	TI.23.A.5
-Mata Kuliah	Pemrograman Web 2
-Langkah-langkah Praktikum
-Praktikum 4: Membuat Sistem Login
-1. Basis Data Persiapkan
-Buat tabel userpada database dengan SQL berikut:
+## Profil
+|  |  |
+| -------- | --- |
+| *Nama* |Ananda Rahmadani |
+| *Kelas* | TI.23.A.5 |
+| *Mata Kuliah* | Pemrograman Web 2 |
+# Langkah-langkah Praktikum 
 
+## Praktikum 4 : Membuat Sistem Login 
+
+##### 1. Basis Data Persiapkan
+Buat tabel userpada database dengan SQL berikut:
+```php
 CREATE TABLE user (
   id INT(11) auto_increment,
   username VARCHAR(200) NOT NULL,
@@ -13,11 +18,12 @@ CREATE TABLE user (
   userpassword VARCHAR(200),
   PRIMARY KEY(id)
 );
-teks alternatif
+```
+![image](https://github.com/user-attachments/assets/ce8cb77a-99f3-4408-80a2-46a84fb03261)
 
-2. Membuat Model Pengguna
-Buat model UserModel.phppada direktori app/Models:
-
+##### 2. Membuat Model Pengguna
+Buat model ```UserModel.php``` pada direktori ```app/Models```:
+```php
 <?php
 namespace App\Models;
 use CodeIgniter\Model;
@@ -29,6 +35,8 @@ class UserModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['username', 'useremail', 'userpassword'];
 }
+```
+
 3. Membuat Controller Pengguna
 Buat pengontrol User.phpdengan metode index()dan login()untuk mengelola pengguna dan login:
 
