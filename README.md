@@ -224,20 +224,25 @@ public function logout()
     }
 ```
 ## Praktikum 5: Paginasi dan Pencarian
+
 ##### 1. Membuat Pagination
+
 Modifikasi artikel pengontrol untuk menambahkan pagination:
+
 ``php
+
 public function admin_index()
 {
     $title = 'Daftar Artikel';
     $model = new ArtikelModel();
     $data = [
         'title' => $title,
-        'artikel' => $model->paginate(10), #data dibatasi 10 record per halaman
+        'artikel' => $model->paginate(10), 
         'pager' => $model->pager,
     ];
     return view('artikel/admin_index', $data);
 }
+
 ```
 
 Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi data tabel.
