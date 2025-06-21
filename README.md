@@ -205,6 +205,7 @@ class Auth implements FilterInterface
 Selanjutnya buka file app/Config/Filters.php tambahkan kode berikut:
 
 ```'auth' => App\Filters\Auth::class```
+
 ![image](https://github.com/user-attachments/assets/d0ba7b55-12f1-4d39-82d9-b023fda77346)
 
 Selanjutnya buka file app/Config/Routes.php dan sesuaikan kodenya. 
